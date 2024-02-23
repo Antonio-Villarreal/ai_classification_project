@@ -1,0 +1,3 @@
+ai_face_classifier/dataset/*
+ai_image_classifier/dataset/*
+__pycache__
