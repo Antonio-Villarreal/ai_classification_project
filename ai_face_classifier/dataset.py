@@ -1,6 +1,6 @@
 from utils import *
 
-real_vs_fake_faces_dataset = os.path.join('datasets', 'real_vs_fake')
+real_vs_fake_faces_dataset = os.path.join('dataset', 'real_vs_fake')
 # https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/data
 
 real_vs_fake_faces_files = {
