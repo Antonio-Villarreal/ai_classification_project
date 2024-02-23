@@ -22,7 +22,7 @@ def datasets():
         labels='inferred',
         label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
-        image_size=hyperparams['IMG_SIZE'],
+        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
     )
 
     validation_dataset = keras.utils.image_dataset_from_directory(
@@ -30,7 +30,7 @@ def datasets():
         labels='inferred',
         label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
-        image_size=hyperparams['IMG_SIZE'],
+        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
     )
 
     testing_dataset = keras.utils.image_dataset_from_directory(
@@ -38,7 +38,7 @@ def datasets():
         labels='inferred',
         label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
-        image_size=hyperparams['IMG_SIZE'],
+        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
     )
 
     return training_dataset, validation_dataset, testing_dataset

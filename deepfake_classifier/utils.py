@@ -17,7 +17,7 @@ from keras_tuner.engine.hyperparameters import HyperParameters
 
 hyperparams = {
     'BATCH_SIZE': 32,
-    'IMG_SIZE': (128, 128),
+    'IMG_SIZE': 224,
     'EPOCHS': 5
 }
 

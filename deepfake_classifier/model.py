@@ -1,7 +1,7 @@
 from utils import *
 
 
-def cnn_model(input_shape=(128, 128, 3), num_classes=2):
+def cnn_model(input_shape=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'], 3), num_classes=2):
     tf.keras.backend.clear_session()
     model = models.Sequential()
 
