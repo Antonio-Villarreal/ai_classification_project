@@ -3,6 +3,7 @@ from utils import *
 
 def cnn_model(input_shape=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'], 3), num_classes=2):
     tf.keras.backend.clear_session()
+    hyperparams['MODEL'] = 'CNN'
     model = models.Sequential()
 
     # Convolutional layers
