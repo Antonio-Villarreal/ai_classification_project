@@ -17,8 +17,9 @@ from keras_tuner.engine.hyperparameters import HyperParameters
 
 hyperparams = {
     'BATCH_SIZE': 32,
-    'IMG_SIZE': 128,
-    'EPOCHS': 5
+    'IMG_SIZE': 224,
+    'EPOCHS': 10,
+    'MODEL': '<EMPTY>'
 }
 
 
@@ -33,9 +34,9 @@ def check_gpu():
 
 
 def save_model(model, model_file):
-    model_directory = os.path.join('model', model_file + '.h5')
+    model_directory = os.path.join('model', model_file + '.keras')
     model.save(model_directory)
-    print(f"Model saved to {model_file}.h5")
+    print(f"Model saved to {model_file}.keras")
 
 
 def save_results(model, training_results, evaluation_results, hyperparameters):
@@ -46,7 +47,7 @@ def save_results(model, training_results, evaluation_results, hyperparameters):
     save_model(model, model_filename)
 
     data = {
-        'model_filename': model_filename + '.h5',
+        'model_filename': model_filename + '.keras',
         'training_results': training_results,
         'evaluation_results': evaluation_results,
         'hyperparams': hyperparameters
