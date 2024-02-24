@@ -14,20 +14,46 @@ dalle_recognition_files = {
 
 
 def dalle_recognition_datasets():
-    training_dataset = keras.utils.image_dataset_from_directory(
+    datagen = ImageDataGenerator(
+        rotation_range=20,  # randomly rotate images in the range (degrees, 0 to 20)
+        width_shift_range=0.2,  # randomly shift images horizontally (fraction of total width)
+        height_shift_range=0.2,  # randomly shift images vertically (fraction of total height)
+        horizontal_flip=True,  # randomly flip images
+        vertical_flip=True,  # randomly flip images
+        rescale=1./255,  # rescale pixel values to [0, 1]
+        validation_split=0.2  # split validation set
+    )
+    
+    # training_dataset = keras.utils.image_dataset_from_directory(
+    #     directory=dalle_recognition_files['training'],
+    #     labels='inferred',
+    #     label_mode='binary',
+    #     batch_size=hyperparams['BATCH_SIZE'],
+    #     image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
+    # )
+
+    # validation_dataset = keras.utils.image_dataset_from_directory(
+    #     directory=dalle_recognition_files['validation'],
+    #     labels='inferred',
+    #     label_mode='binary',
+    #     batch_size=hyperparams['BATCH_SIZE'],
+    #     image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
+    # )
+    
+    training_dataset = datagen.flow_from_directory(
         directory=dalle_recognition_files['training'],
-        labels='inferred',
-        label_mode='binary',
+        target_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
         batch_size=hyperparams['BATCH_SIZE'],
-        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
+        class_mode='binary',
+        subset='training'
     )
 
-    validation_dataset = keras.utils.image_dataset_from_directory(
-        directory=dalle_recognition_files['validation'],
-        labels='inferred',
-        label_mode='binary',
+    validation_dataset = datagen.flow_from_directory(
+        directory=dalle_recognition_files['training'],
+        target_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
         batch_size=hyperparams['BATCH_SIZE'],
-        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
+        class_mode='binary',
+        subset='validation'
     )
 
     testing_dataset = keras.utils.image_dataset_from_directory(

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from PIL import Image
 from tensorflow import keras
-from tensorflow.keras import layers, models, optimizers
+from tensorflow.keras import layers, models, optimizers, regularizers
 from keras.layers import BatchNormalization
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras_tuner.engine.hyperparameters import HyperParameters
