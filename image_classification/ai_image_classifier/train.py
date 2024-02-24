@@ -1,6 +1,6 @@
 from utils import *
 from dataset import *
-from model import cnn_model
+from model import cnn_model, resnet_model
 
 
 def train_model(model, training_dataset, validation_dataset, epochs=10):
@@ -36,7 +36,7 @@ def evaluate_model(model, testing_dataset):
 
 
 def model_workflow():
-    model = cnn_model()
+    model = resnet_model()
     training_dataset, validation_dataset, testing_dataset = dalle_recognition_datasets()
     training_results = train_model(model, training_dataset, validation_dataset, epochs=hyperparams['EPOCHS'])
     evaluation_results = evaluate_model(model, testing_dataset)
