@@ -16,7 +16,7 @@ real_vs_fake_faces_files = {
 }
 
 
-def datasets():
+def real_vs_fake_faces_datasets():
     training_dataset = keras.utils.image_dataset_from_directory(
         directory=real_vs_fake_faces_files['training'],
         labels='inferred',
