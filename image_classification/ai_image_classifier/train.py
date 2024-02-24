@@ -39,7 +39,7 @@ def model_workflow():
     model = cnn_model()
     training_dataset, validation_dataset, testing_dataset = dalle_recognition_datasets()
     training_results = train_model(model, training_dataset, validation_dataset, epochs=hyperparams['EPOCHS'])
-    evaluation_results = evaluate_model(model, training_dataset)
+    evaluation_results = evaluate_model(model, testing_dataset)
     save_results(model, training_results, evaluation_results, hyperparams)
 
 
