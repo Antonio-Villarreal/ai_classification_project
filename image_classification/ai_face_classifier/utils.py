@@ -33,21 +33,32 @@ def check_gpu():
         print("No GPU is available.")
 
 
-def save_model(model, model_file):
+def save_model_keras(model, model_file):
     model_directory = os.path.join('model', model_file + '.keras')
     model.save(model_directory)
     print(f"Model saved to {model_file}.keras")
+    return model_file + '.keras'
 
 
-def save_results(model, training_results, evaluation_results, hyperparameters):
+def save_model_h5(model, model_file):
+    model_directory = os.path.join('model', model_file + '.h5')
+    model.save(model_directory)
+    print(f"Model saved to {model_file}.h5")
+    return model_file + '.h5'
+
+
+def save_results(model, training_results, evaluation_results, hyperparameters, save_h5: bool = False):
     timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
     model_filename = f"face_classifier_model_{timestamp}"
     json_filename = f"face_classifier_training_{timestamp}.json"
 
-    save_model(model, model_filename)
+    if save_h5:
+        file = save_model_h5(model, model_filename)
+    else:
+        file = save_model_keras(model, model_filename)
 
     data = {
-        'model_filename': model_filename + '.keras',
+        'model_filename': file,
         'training_results': training_results,
         'evaluation_results': evaluation_results,
         'hyperparams': hyperparameters

@@ -39,9 +39,10 @@ def model_workflow():
     training_dataset, validation_dataset, testing_dataset = real_vs_fake_faces_datasets()
 
     model = cnn_model()
+    hyperparams['MODEL'] = 'CNN'
     training_results = train_model(model, training_dataset, validation_dataset, epochs=hyperparams['EPOCHS'])
     evaluation_results = evaluate_model(model, testing_dataset)
-    save_results(model, training_results, evaluation_results, hyperparams)
+    save_results(model, training_results, evaluation_results, hyperparams, save_h5=True)
 
 
 if __name__ == "__main__":
