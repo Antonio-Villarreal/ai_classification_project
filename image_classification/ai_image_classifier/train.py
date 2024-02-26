@@ -1,6 +1,6 @@
 from utils import *
 from dataset import *
-from model import cnn_model, resnet_model
+from model import cnn_model, vgg19_model
 
 
 def train_model(model, training_dataset, validation_dataset, epochs=10):
@@ -36,11 +36,19 @@ def evaluate_model(model, testing_dataset):
 
 
 def model_workflow():
-    model = resnet_model()
-    training_dataset, validation_dataset, testing_dataset = dalle_recognition_datasets()
+    training_dataset, validation_dataset, testing_dataset = realifake_datasets()
+
+    model = cnn_model()
+    hyperparams['MODEL'] = 'CNN'
     training_results = train_model(model, training_dataset, validation_dataset, epochs=hyperparams['EPOCHS'])
     evaluation_results = evaluate_model(model, testing_dataset)
-    save_results(model, training_results, evaluation_results, hyperparams)
+    save_results(model, training_results, evaluation_results, hyperparams, save_h5=True)
+
+    # model = vgg19_model()
+    # hyperparams['MODEL'] = 'VGG19'
+    # training_results = train_model(model, training_dataset, validation_dataset, epochs=hyperparams['EPOCHS'])
+    # evaluation_results = evaluate_model(model, testing_dataset)
+    # save_results(model, training_results, evaluation_results, hyperparams, save_h5=True)
 
 
 if __name__ == "__main__":

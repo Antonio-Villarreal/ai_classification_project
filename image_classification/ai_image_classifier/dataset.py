@@ -1,63 +1,40 @@
 from utils import *
 
-dalle_recognition_dataset = os.path.join('dataset', 'dalle_recognition')
-# https://www.kaggle.com/datasets/gauravduttakiit/dalle-recognition-dataset
+realifake_dataset = os.path.join('dataset', 'Realifake')
+# https://www.kaggle.com/datasets/sattyam96/realifake
 
-dalle_recognition_files = {
-    'training': os.path.join(dalle_recognition_dataset, 'train'),
-    'training_fake': os.path.join(dalle_recognition_dataset, 'train', 'fake'),
-    'training_real': os.path.join(dalle_recognition_dataset, 'train', 'real'),
-    'testing': os.path.join(dalle_recognition_dataset, 'test'),
-    'testing_fake': os.path.join(dalle_recognition_dataset, 'test', 'fake'),
-    'testing_real': os.path.join(dalle_recognition_dataset, 'test', 'real'),
+realifake_files = {
+    'data': realifake_dataset,
+    'data_fake': os.path.join(realifake_dataset, 'fake'),
+    'data_real': os.path.join(realifake_dataset, 'real'),
 }
 
 
-def dalle_recognition_datasets():
-    datagen = ImageDataGenerator(
-        rotation_range=20,  # randomly rotate images in the range (degrees, 0 to 20)
-        width_shift_range=0.2,  # randomly shift images horizontally (fraction of total width)
-        height_shift_range=0.2,  # randomly shift images vertically (fraction of total height)
-        horizontal_flip=True,  # randomly flip images
-        vertical_flip=True,  # randomly flip images
-        rescale=1./255,  # rescale pixel values to [0, 1]
-        validation_split=0.2  # split validation set
-    )
-    
-    # training_dataset = keras.utils.image_dataset_from_directory(
-    #     directory=dalle_recognition_files['training'],
-    #     labels='inferred',
-    #     label_mode='binary',
-    #     batch_size=hyperparams['BATCH_SIZE'],
-    #     image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
-    # )
-
-    # validation_dataset = keras.utils.image_dataset_from_directory(
-    #     directory=dalle_recognition_files['validation'],
-    #     labels='inferred',
-    #     label_mode='binary',
-    #     batch_size=hyperparams['BATCH_SIZE'],
-    #     image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE'])
-    # )
-    
-    training_dataset = datagen.flow_from_directory(
-        directory=dalle_recognition_files['training'],
-        target_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
+def realifake_datasets():
+    training_dataset = keras.utils.image_dataset_from_directory(
+        directory=realifake_files['data'],
+        labels='inferred',
+        label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
-        class_mode='binary',
-        subset='training'
+        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
+        validation_split=0.2,
+        subset='training',
+        seed=123
     )
 
-    validation_dataset = datagen.flow_from_directory(
-        directory=dalle_recognition_files['training'],
-        target_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
+    validation_dataset = keras.utils.image_dataset_from_directory(
+        directory=realifake_files['data'],
+        labels='inferred',
+        label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
-        class_mode='binary',
-        subset='validation'
+        image_size=(hyperparams['IMG_SIZE'], hyperparams['IMG_SIZE']),
+        validation_split=0.2,
+        subset='validation',
+        seed=123
     )
 
     testing_dataset = keras.utils.image_dataset_from_directory(
-        directory=dalle_recognition_files['testing'],
+        directory=realifake_files['data'],
         labels='inferred',
         label_mode='binary',
         batch_size=hyperparams['BATCH_SIZE'],
@@ -90,4 +67,4 @@ def display_random_images(dictionary: dict):
 
 
 if __name__ == "__main__":
-    display_random_images(dalle_recognition_files)
+    display_random_images(realifake_files)
