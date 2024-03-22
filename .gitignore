@@ -1,3 +1,4 @@
 ai_face_classifier/dataset/*
 ai_image_classifier/dataset/*
+uploads
 __pycache__
