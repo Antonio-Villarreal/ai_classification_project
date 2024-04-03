@@ -1,0 +1,1 @@
+Use the download.py script to download models (because they are too large).
