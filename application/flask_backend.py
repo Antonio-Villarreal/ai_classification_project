@@ -17,11 +17,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load the image classification model
-model_image_path = 'image_model.h5'  # Path to the image classification model
+model_image_path = 'models/image_model.h5'  # Path to the image classification model
 model_image = load_model(model_image_path)
 
 # Load the face detection model
-model_face_path = 'face_model.h5'  # Path to the face detection model
+model_face_path = 'models/face_model.h5'  # Path to the face detection model
 model_face = load_model(model_face_path)
 
 # Define hyperparameters for image classification
