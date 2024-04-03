@@ -30,15 +30,17 @@ else
     source "$VENV_PATH/bin/activate"
 fi
 
+python3 download.py
+
 cd application
 
 # Start Flask backend
 echo "Starting Flask backend..."
-python flask_backend.py &
+python3 flask_backend.py &
 
 # Wait for Flask to start (adjust sleep time as needed)
 sleep 5
 
 # Start Streamlit frontend
 echo "Starting Streamlit frontend..."
-streamlit streamlit_frontend.py
+streamlit run streamlit_frontend.py
