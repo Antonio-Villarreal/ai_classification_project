@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./docker_stop.sh
+
 # Check if the classification-app image exists for Linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if ! docker images classification-app | grep -q classification-app; then
