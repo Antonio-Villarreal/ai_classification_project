@@ -42,6 +42,12 @@ fi
 
 start_backend() {
     echo "Starting Flask backend..."
+    if ! command -v gnome-terminal &> /dev/null; then
+        echo "gnome-terminal is not installed. Installing it now..."
+        sudo apt update
+        sudo apt install -y gnome-terminal
+    fi
+
     gnome-terminal -- python3 flask_backend.py
 }
 
