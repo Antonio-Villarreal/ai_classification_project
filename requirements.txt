@@ -1,11 +1,12 @@
 requests
 streamlit
 numpy
-Flask
+flask
 Werkzeug
 matplotlib
-Pillow
+pillow
 scipy
-tensorflow==2.10
+tensorflow
 keras
 keras-tuner
+gdown
