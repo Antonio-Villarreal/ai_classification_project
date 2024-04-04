@@ -1,0 +1,12 @@
+requests
+streamlit
+numpy
+flask
+Werkzeug
+matplotlib
+pillow
+scipy
+tensorflow
+keras
+keras-tuner
+gdown
