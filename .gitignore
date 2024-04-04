@@ -1,6 +1,6 @@
 ai_face_classifier/dataset/*
 ai_image_classifier/dataset/*
-application/model/*.h5
+application/models/*.h5
 .idea
 uploads
 __pycache__
