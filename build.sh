@@ -2,6 +2,8 @@
 
 set -e
 
+cd application
+
 VENV_PATH="venv"
 if ! [ -x "$VENV_PATH" ]; then
     echo "Setting up virtual environment and installing dependencies..."
@@ -31,7 +33,7 @@ else
 fi
 
 # Download h5 files
-if [ -d "application/models" ] && [ -f "application/models/face_model.h5" ] && [ -f "application/models/image_model.h5" ]; then
+if [ -d "models" ] && [ -f "models/face_model.h5" ] && [ -f "models/image_model.h5" ]; then
     echo "Skipping download process for models..."
 else
     echo "Initiating download process for models..."
@@ -47,8 +49,6 @@ start_frontend() {
     echo "Starting Streamlit frontend..."
     gnome-terminal -- bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
 }
-
-cd application
 
 # Start Flask backend
 start_backend
