@@ -30,17 +30,29 @@ else
     source "$VENV_PATH/bin/activate"
 fi
 
-python3 download.py
+# Download h5 files
+if [ -d "application/models" ] && [ -f "application/models/face_model.h5" ] && [ -f "application/models/image_model.h5" ]; then
+    echo "Skipping download process for models..."
+else
+    echo "Initiating download process for models..."
+    python3 download.py
+fi
+
+start_backend() {
+    echo "Starting Flask backend..."
+    gnome-terminal -- python3 flask_backend.py
+}
+
+start_frontend() {
+    echo "Starting Streamlit frontend..."
+    gnome-terminal -- bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
+}
 
 cd application
 
 # Start Flask backend
-echo "Starting Flask backend..."
-python3 flask_backend.py &
-
-# Wait for Flask to start (adjust sleep time as needed)
+start_backend
 sleep 5
 
 # Start Streamlit frontend
-echo "Starting Streamlit frontend..."
-streamlit run streamlit_frontend.py
+start_frontend
