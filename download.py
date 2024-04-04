@@ -1,41 +1,30 @@
 import os
-import requests
+import gdown
+import json
 
-def download_file_from_google_drive(url, destination):
-    session = requests.Session()
 
-    # Extract file ID from URL
-    file_id = url.split('/')[-2]
+def download_from_google_drive(url, output_file):
+    gdown.download(url, output_file, quiet=False)
 
-    # Create the URL for the file download
-    URL = "https://drive.google.com/uc?id=" + file_id
-
-    # Make request to download the file
-    response = session.get(URL, stream=True)
-
-    # Save the file to the destination directory
-    with open(destination, 'wb') as f:
-        for chunk in response.iter_content(chunk_size=1024 * 1024):
-            if chunk:
-                f.write(chunk)
-
-    print(f"File downloaded to: {destination}")
 
 if __name__ == "__main__":
-    # Provide the Google Drive link and the destination directory
-    google_drive_link = "https://drive.google.com/file/d/1iqh5EraZ8fF4YTAFA3_Q9lWYJ4tOGlBH/view?usp=drive_link"
     destination_directory = "application/models"
-    filename = "face_model.h5"
-    destination = os.path.join(destination_directory, filename)
 
-    # Call the function to download the file
-    download_file_from_google_drive(google_drive_link, destination)
-    
-    # Provide the Google Drive link and the destination directory
-    google_drive_link = "https://drive.google.com/file/d/13MUAaQYZt_C2bpmevP7FaeOmNYJp4_j5/view?usp=drive_link"
-    destination_directory = "application/models"
-    filename = "image_model.h5"
-    destination = os.path.join(destination_directory, filename)
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
 
-    # Call the function to download the file
-    download_file_from_google_drive(google_drive_link, destination)
+    json_file_path = os.path.join(destination_directory, "models.json")
+    with open(json_file_path, "r") as json_file:
+        model_info = json.load(json_file)
+
+    # Download face_model.h5
+    face_model_link = model_info["face_model"]
+    filename_1 = "face_model.h5"
+    destination_1 = os.path.join(destination_directory, filename_1)
+    download_from_google_drive(face_model_link, destination_1)
+
+    # Download image_model.h5
+    image_model_link = model_info["image_model"]
+    filename_2 = "image_model.h5"
+    destination_2 = os.path.join(destination_directory, filename_2)
+    download_from_google_drive(image_model_link, destination_2)
