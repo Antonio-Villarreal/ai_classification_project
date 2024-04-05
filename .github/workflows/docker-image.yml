@@ -15,17 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
-    - name: Run the Docker Container
-      run: docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
-    - name: Wait for Docker Container to start
-      run: sleep 10    
-    - name: Install ngrok
       run: |
+          cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
+          docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app'
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip ngrok-stable-linux-amd64.zip
-    - name: Expose Docker container using ngrok
-      run: |
           ./ngrok http 8501
-    - name: Stop Docker container
-      run: docker stop classification-app
+          sleep 50
