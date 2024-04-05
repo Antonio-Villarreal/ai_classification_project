@@ -14,5 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Build the ./build.sh script
+      run: |
+        chmod +x build.sh
+        ./build.sh
     - name: Build the Docker image
       run: cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
