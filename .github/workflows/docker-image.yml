@@ -15,10 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: |
-          cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
-          docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app'
-          wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-          unzip ngrok-stable-linux-amd64.zip
-          ./ngrok http 8501
-          sleep 50
+      run: cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
