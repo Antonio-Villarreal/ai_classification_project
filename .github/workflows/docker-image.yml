@@ -16,3 +16,27 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
+    - name: Run the Docker Container
+      run: cd application && docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
+    - name: Wait for Docker Container to start
+      run: sleep 10    
+    - name: Start ngrok
+      run: |
+        # Download and extract ngrok
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+        unzip ngrok-stable-linux-amd64.zip
+
+        # Start ngrok to expose local web server running on port 8501
+        NGROK_URL=$(./ngrok http 8501 | grep -oP "http://\S+")
+    - name: Test web application with Selenium
+      run: |
+        # Install dependencies
+        apt-get update && apt-get install -y python3-pip xvfb
+        pip3 install selenium pyvirtualdisplay
+
+        # Run Selenium script to interact with web application via ngrok
+        export DISPLAY=:99
+        Xvfb $DISPLAY -screen 0 1024x768x24 > /dev/null 2>&1 &
+        python3 -c "from selenium import webdriver; driver = webdriver.Chrome(); driver.get('${NGROK_URL}');"
+    - name: Stop Docker container
+      run: docker stop classification-app
