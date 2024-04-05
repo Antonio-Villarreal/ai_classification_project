@@ -1,1 +1,1 @@
-.github/fsharp-custom-action/** -linguist-vendored
+*.es linguist-language=PYTHON
