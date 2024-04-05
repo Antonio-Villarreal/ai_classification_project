@@ -1,5 +1,3 @@
-ai_face_classifier/dataset/*
-ai_image_classifier/dataset/*
 application/models/*.h5
 .idea
 uploads
