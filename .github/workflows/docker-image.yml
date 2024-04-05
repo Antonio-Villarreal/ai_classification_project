@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Change directory to application
+      run: cd application
     - name: Build the Docker image
       run: docker build . --file application/Dockerfile --tag classification-app:$(date +%s)
