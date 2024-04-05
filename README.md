@@ -45,4 +45,8 @@ The actual datasets are at least 80,000 images each so a subsection of one of th
 
 - **Midpoint Presentation:** [YouTube Link](https://youtu.be/npR-YJRWkTA?si=t-RTi0n4hXT8kVhW)
 
+### Helpful Links
+
+- - **GPU Enabled TensorFlow:** [Link](https://www.tensorflow.org/install/pip#windows-native_1)
+
 
