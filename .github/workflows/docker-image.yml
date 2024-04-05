@@ -17,4 +17,4 @@ jobs:
     - name: Change directory to application
       run: cd application
     - name: Build the Docker image
-      run: docker build . --file application/Dockerfile --tag classification-app:$(date +%s)
+      run: docker build . --file Dockerfile --tag classification-app:$(date +%s)
