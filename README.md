@@ -18,7 +18,7 @@ The actual datasets are at least 80,000 images each so a subsection of one of th
 
 ## Web Application
 ### Run with Docker (Windows, Linux, Mac)
-1. Install Docker or Docker Desktop
+1. Install Docker or Docker Desktop (Open Docker Desktop for Windows)
 2. Clone Repository
 3. Give Permissions for Bash Scripts (linux - `chmod +x ./docker_run.sh ./docker_stop.sh`)
 4. Run `./docker_run.sh`
