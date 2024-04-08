@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     json_file_path = os.path.join(destination_directory, "models.json")
     with open(json_file_path, "r") as json_file:
-        model_info = json.load(json_file)\
+        model_info = json.load(json_file)
             
     # Download image_model.h5
     image_model_id = model_info["image_model"]

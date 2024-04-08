@@ -58,7 +58,7 @@ start_frontend() {
 
 # Start Flask backend
 start_backend
-sleep 5
+sleep 15
 
 # Start Streamlit frontend
 start_frontend
