@@ -18,12 +18,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
     if ! docker images classification-app | grep -q classification-app; then
         # Build Docker image
-        docker build -t classification-app /application
+        docker build -t classification-app application
     fi
 
     # Run Docker container
     docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
-    sleep 5
+    sleep 10
 
     # Open localhost:8501
     start http://localhost:8501

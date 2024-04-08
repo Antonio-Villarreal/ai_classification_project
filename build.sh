@@ -33,7 +33,7 @@ else
 fi
 
 # Download h5 files
-if [ -d "models" ] && [ -f "models/face_model.h5" ] && [ -f "models/image_model.h5" ]; then
+if [ -f "face_model.h5" ] && [ -f "image_model.h5" ]; then
     echo "Skipping download process for models..."
 else
     echo "Initiating download process for models..."
