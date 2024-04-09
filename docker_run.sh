@@ -9,8 +9,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         docker build -t classification-app application
     fi
 
+    echo "Running!"
+    
     # Run Docker container
     docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
+
+    echo "Next!"
 
     # Open localhost:8501
     sleep 45 && xdg-open http://localhost:8501
