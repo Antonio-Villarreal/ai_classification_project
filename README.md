@@ -47,6 +47,6 @@ The actual datasets are at least 80,000 images each so a subsection of one of th
 
 ### Helpful Links
 
-- - **GPU Enabled TensorFlow:** [Link](https://www.tensorflow.org/install/pip#windows-native_1)
+- **GPU Enabled TensorFlow:** [Link](https://www.tensorflow.org/install/pip#windows-native_1)
 
 
