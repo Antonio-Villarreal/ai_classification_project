@@ -11,7 +11,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     docker rm $container_id
     # Remove the image
     if [[ "$1" == "--clear" || "$1" == "-c" ]]; then
-        docker rmi $container_id
+        docker rmi classification-app
     fi
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
     # Stop the container
