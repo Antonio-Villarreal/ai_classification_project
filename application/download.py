@@ -28,6 +28,7 @@ if __name__ == "__main__":
                 download(model_info["image_model"]['onedrive_url'], image_model_destination)
             except Exception as e:
                 print("OneDrive download failed:", e)
+                print("Please refer to the README on how to manually download the models.")
 
     # Download face_model.h5 if it doesn't exist
     if not os.path.exists("face_model.h5"):
@@ -44,3 +45,4 @@ if __name__ == "__main__":
                 download(model_info["face_model"]['onedrive_url'], face_model_destination)
             except Exception as e:
                 print("OneDrive download failed:", e)
+                print("Please refer to the README on how to manually download the models.")
