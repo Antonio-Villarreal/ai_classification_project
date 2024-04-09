@@ -7,8 +7,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if ! docker images classification-app | grep -q classification-app; then
         # Build Docker image
         docker build -t classification-app application
-    fi
 
+        while ! docker images classification-app | grep -q classification-app; do
+            sleep 1
+        done
+    fi
+    
     # Run Docker container
     docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
 
