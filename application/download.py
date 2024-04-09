@@ -8,12 +8,7 @@ def download_from_google_drive(url, output_file):
 
 
 if __name__ == "__main__":
-    destination_directory = "models"
-
-    if not os.path.exists(destination_directory):
-        os.makedirs(destination_directory)
-
-    json_file_path = os.path.join(destination_directory, "models.json")
+    json_file_path = os.path.join("models.json")
     with open(json_file_path, "r") as json_file:
         model_info = json.load(json_file)
             
