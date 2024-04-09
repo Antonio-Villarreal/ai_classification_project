@@ -6,7 +6,7 @@ set -e
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if ! docker images classification-app | grep -q classification-app; then
         # Build Docker image
-        docker build -t classification-app /application
+        docker build -t classification-app application
     fi
 
     # Run Docker container
