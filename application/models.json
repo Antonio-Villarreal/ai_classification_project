@@ -1,4 +1,10 @@
 {
-    "face_model": "1iqh5EraZ8fF4YTAFA3_Q9lWYJ4tOGlBH",
-    "image_model": "1ZjV4VCCg1xxBRWTAIHPqkN1YlL4SaEUx"
+  "face_model": {
+    "google_drive_id": "1iqh5EraZ8fF4YTAFA3_Q9lWYJ4tOGlBH",
+    "onedrive_url": "https://uflorida-my.sharepoint.com/:u:/g/personal/a_villarreal1_ufl_edu/ERFGqjtmH45Ir9m5oBby8h0BX_BSxC2UBh2n9NqFEXbnSQ?e=3Dsb6i"
+  },
+  "image_model": {
+    "google_drive_id": "1ZjV4VCCg1xxBRWTAIHPqkN1YlL4SaEUx",
+    "onedrive_url": "https://uflorida-my.sharepoint.com/:u:/g/personal/a_villarreal1_ufl_edu/Ec_6UA3lJtVDuf6Kwki8bs4B4m-fmQGY68C5PW5H28s4tQ?e=0lOOzR"
+  }
 }
