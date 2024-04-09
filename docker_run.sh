@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
 
     # Open localhost:8501
-    sleep 45 && xdg-open http://localhost:8501
+    sleep 30 && xdg-open http://localhost:8501
 
 # Check if the classification-app image exists for Windows
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
