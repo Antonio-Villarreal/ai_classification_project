@@ -29,12 +29,18 @@ The actual datasets are at least 80,000 images each so a subsection of one of th
 3. Give Permissions for Bash Script (linux - `chmod +x ./build.sh`)
 4. Run `./build.sh`
 
+## Manual Model Download
+Either build process can have issues with downloading the .h5 model files. Below are the steps to download them manually.
+1. Open the OneDrive link below.
+2. Download `image_model.h5` and  `face_model.h5`.
+3. Copy two files into /application directory.
+4. Rerun local or docker build process.
+
 ## Links
 
 ### Classifier Models
 
-- **Face Classifier Models:** [Google Drive Link](https://drive.google.com/drive/folders/1rnujM68zT3QeGc_Bztl9zFpSLHiTyu3s?usp=sharing)
-- **Image Classifier Models:** [Google Drive Link](https://drive.google.com/drive/folders/1_VZ11vyGRrx27qy7a1kLP6abBGg_9eVV?usp=sharing)
+- **Face and Image Classifier Models:** [OneDrive Link](https://uflorida-my.sharepoint.com/:f:/g/personal/a_villarreal1_ufl_edu/Eg0w-ssmdKtCspEwaFvHlzABQ4Yy8VpkbhzV2S-udj6ClQ?e=8zTvaQ)
 
 ### Datasets
 
