@@ -25,7 +25,8 @@ def download_image_model(model_info):
             except Exception as e:
                 print("OneDrive download failed:", e)
                 print("Please refer to the README on how to manually download the models.")
-    print("Image Model Download Completed!")
+    else:
+        print("Skipping image_model.h5 download...")
 
 def download_face_model(model_info):
     if not os.path.exists("face_model.h5"):
@@ -43,7 +44,8 @@ def download_face_model(model_info):
             except Exception as e:
                 print("OneDrive download failed:", e)
                 print("Please refer to the README on how to manually download the models.")
-    print("Face Model Download Completed!")
+    else:
+        print("Skipping face_model.h5 download...")
     
 def main():
     json_file_path = os.path.join("models.json")
