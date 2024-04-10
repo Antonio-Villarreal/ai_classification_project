@@ -23,7 +23,7 @@ The actual datasets are at least 80,000 images each so a subsection of one of th
 3. Give Permissions for Bash Scripts (linux - `chmod +x ./docker_run.sh ./docker_stop.sh`)
 4. Run `./docker_run.sh`
 
-### Run with Local Build (Linux, Mac)
+### Run with Local Build (Linux)
 1. Install Python3.10
 2. Clone Repository
 3. Give Permissions for Bash Script (linux - `chmod +x ./build.sh`)
