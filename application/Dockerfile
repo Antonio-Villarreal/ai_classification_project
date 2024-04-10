@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip3 install --upgrade pip && \
+    pip3 install -r requirements.txt
 
 RUN python3 download.py
 
