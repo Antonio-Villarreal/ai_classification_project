@@ -3,7 +3,7 @@
 set -ez
 
 # Check if the classification-app image exists for Linux
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OSTYPE" == "linux-gnu"* || "$OSTYPE" == "darwin"* ]]; then
     if ! docker images classification-app | grep -q classification-app; then
         # Build Docker image
         docker build -t classification-app application
@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     docker run -d -p 5001:5001 -p 8501:8501 --name classification-app classification-app
 
     # Open localhost:8501
-    sleep 15 && xdg-open http://localhost:8501
+    sleep 15 && open http://localhost:8501
 
 # Check if the classification-app image exists for Windows
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
