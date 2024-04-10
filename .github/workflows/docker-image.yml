@@ -20,5 +20,5 @@ jobs:
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
     - name: Push image to Github Container Registry
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository }}/classification-app:latest
+        IMAGE_ID=ghcr.io/antonio-villarreal/ai_classification_project/classification-app:latest
         docker push $IMAGE_ID
