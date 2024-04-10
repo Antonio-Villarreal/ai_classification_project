@@ -8,11 +8,17 @@ on:
 
 jobs:
 
-  build:
-
+  buildImage:
+    name: Build Docker Image
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: cd application && docker build . --file Dockerfile --tag classification-app:$(date +%s)
+      run: cd application && docker build . --file Dockerfile --tag classification-app
+    - name: Log into GitHub Container Registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+    - name: Push image to Github Container Registry
+      run: |
+        IMAGE_ID=ghcr.io/${{github.repository_owner }}/classification-app:${{ github.run_id }}
+        docker push $IMAGE_ID
