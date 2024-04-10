@@ -63,7 +63,7 @@ start_backend_mac() {
 
 start_frontend_mac() {
     echo "Starting Streamlit frontend..."
-    open -a Terminal bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
+    open -a Terminal streamlit run streamlit_frontend.py
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
