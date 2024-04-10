@@ -11,6 +11,7 @@ COPY . /app
 RUN apt-get update && apt-get install -y \
     python3-tk \
     supervisor \
+    libhdf5-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade pip && \
