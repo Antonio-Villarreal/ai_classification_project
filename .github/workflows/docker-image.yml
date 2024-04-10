@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: cd application && docker build . --file Dockerfile --tag classification-app
+      run: cd application && docker build . --file Dockerfile --tag classification-app:latest
     - name: Log into GitHub Container Registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
     - name: Push image to Github Container Registry
