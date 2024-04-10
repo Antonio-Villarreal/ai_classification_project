@@ -56,16 +56,6 @@ start_frontend_linux() {
     gnome-terminal -- bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
 }
 
-start_backend_mac() {
-    echo "Starting Flask backend..."
-    open -a Terminal python3 flask_backend.py
-}
-
-start_frontend_mac() {
-    echo "Starting Streamlit frontend..."
-    open -a Terminal streamlit run streamlit_frontend.py
-}
-
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Start Flask backend
     start_backend_linux
@@ -73,13 +63,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     
     # Start Streamlit frontend
     start_frontend_linux
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # Start Flask backend
-    start_backend_mac
-    sleep 15
-    
-    # Start Streamlit frontend
-    start_frontend_mac
 else
     echo "Unsupported operating system"
     exit 1
