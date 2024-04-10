@@ -9,7 +9,7 @@ on:
 jobs:
 
   buildImage:
-    name: Build Docker Image
+    name: Build Docker Image and Push it to Container Registry
     runs-on: ubuntu-latest
 
     steps:
