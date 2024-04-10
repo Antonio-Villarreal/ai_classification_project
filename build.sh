@@ -40,7 +40,7 @@ else
     python3 download.py
 fi
 
-start_backend() {
+start_backend_linux() {
     echo "Starting Flask backend..."
     if ! command -v gnome-terminal &> /dev/null; then
         echo "gnome-terminal is not installed. Installing it now..."
@@ -51,14 +51,36 @@ start_backend() {
     gnome-terminal -- python3 flask_backend.py
 }
 
-start_frontend() {
+start_frontend_linux() {
     echo "Starting Streamlit frontend..."
     gnome-terminal -- bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
 }
 
-# Start Flask backend
-start_backend
-sleep 15
+start_backend_mac() {
+    echo "Starting Flask backend..."
+    open -a Terminal python3 flask_backend.py
+}
 
-# Start Streamlit frontend
-start_frontend
+start_frontend_mac() {
+    echo "Starting Streamlit frontend..."
+    open -a Terminal bash -c "streamlit run streamlit_frontend.py --server.enableCORS false; exec bash"
+}
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Start Flask backend
+    start_backend_linux
+    sleep 15
+    
+    # Start Streamlit frontend
+    start_frontend_linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Start Flask backend
+    start_backend_mac
+    sleep 15
+    
+    # Start Streamlit frontend
+    start_frontend_mac
+else
+    echo "Unsupported operating system"
+    exit 1
+fi
