@@ -1,6 +1,6 @@
 # AI Classification Project
 
-**Presentation and Demo** [YouTube Video](https://youtu.be/Pptg6GLc2gw)
+**Final Presentation/Demo:** [YouTube Video](https://youtu.be/Pptg6GLc2gw)
 
 ## Project Description
 
@@ -52,6 +52,7 @@ Either build process can have issues with downloading the .h5 model files. Below
 ### Additional Resources
 
 - **Midpoint Presentation:** [YouTube Link](https://youtu.be/npR-YJRWkTA?si=t-RTi0n4hXT8kVhW)
+- **Final Presentation/Demo:** [YouTube Video](https://youtu.be/Pptg6GLc2gw)
 
 ### Helpful Links
 
