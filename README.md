@@ -1,7 +1,5 @@
 # AI Classification Project
 
-**Final Presentation/Demo:** [YouTube Video](https://youtu.be/Pptg6GLc2gw)
-
 ## Project Description
 
 With generative machine learning models such as Dall-E and Chat-GPT becoming better and more realistic, it is becoming difficult to determine what exactly has been AI-generated. Distinguishing between AI-generated and real images has become increasingly challenging. Our team proposes a project to train a model that will determine whether an image is real or AI-generated. By taking a large dataset we found on Kaggle, we hope to train our image classification model to deploy an application where users can submit an image to identify whether the image is real or AI-generated. We will utilize Streamlit and Flask to help deploy this application for an easy-to-use user interface.
